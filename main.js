@@ -83,6 +83,11 @@ scene.add(mosaic);
 mosaic.position.z = 10;
 mosaic.position.setX(-10);
 
+saaleh.position.z = -5;
+saaleh.position.x = 2;
+
+
+
 function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
     mosaic.rotation.x += 0.05;
@@ -90,7 +95,7 @@ function moveCamera() {
     mosaic.rotation.z += 0.05;
 
     saaleh.rotation.y += 0.01;
-    saaleh.rotation += 0.01;
+    saaleh.rotation.z += 0.01;
 
     camera.position.z = t * -0.01;
     camera.position.x = t * -0.0002;
@@ -100,6 +105,7 @@ function moveCamera() {
 }
 
 document.body.onscroll = moveCamera
+moveCamera();
 
 function animate() {
     requestAnimationFrame( animate );
@@ -108,7 +114,9 @@ function animate() {
     torus.rotation.y += 0.005;
     torus.rotation.z += 0.01;
 
+    mosaic.rotation.x += 0.005;
+
     renderer.render( scene, camera );
 }
 
-animate()
+animate();
